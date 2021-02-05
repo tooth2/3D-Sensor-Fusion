@@ -1,2 +1,2 @@
 # 3D-Sensor-Fusion
-Vehicle Tracking using YOLO v3 (image training) and Lidar data
+Vehicle Tracking using YOLO v3 (image training and classification) and Lidar data
