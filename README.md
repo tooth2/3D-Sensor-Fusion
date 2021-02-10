@@ -1,4 +1,4 @@
-# 3D-Sensor-Fusion
+# 3D-Object-Tracking using Sensor Fusion(Camera+Lidar) 
 Vehicle Tracking using YOLO v3 (image training and classification) and Lidar data
 
 
@@ -45,6 +45,7 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
   * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
   * The OpenCV 4.1.0 source code can be found [here](https://github.com/opencv/opencv/tree/4.1.0)
 * gcc/g++ >= 5.4
+* yolov3.weights : Download wget https://pjreddie.com/media/files/yolov3.weights 
 
 ## Reference 
 
