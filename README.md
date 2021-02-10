@@ -37,3 +37,15 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
 2. All detector / descriptor combinations combinations are compared with respect to the TTC estimate on a frame-by-frame basis.
 * the best performing combinations 
 * several examples where camera-based TTC estimation is way off.
+
+## Runtime Environment Dependencies
+* cmake >= 2.8
+* make >= 4.1 (Linux, Mac), 3.81 (Windows)
+* OpenCV >= 4.1
+  * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
+  * The OpenCV 4.1.0 source code can be found [here](https://github.com/opencv/opencv/tree/4.1.0)
+* gcc/g++ >= 5.4
+
+## Reference 
+
+
