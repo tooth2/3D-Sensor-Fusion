@@ -40,6 +40,7 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
 
 ## Result 
 One example , FAST detector + SIFT Descriptor + BF_Matcher
+
 ![result](result.gif)
 
 ## Runtime Environment Dependencies
@@ -57,7 +58,7 @@ One example , FAST detector + SIFT Descriptor + BF_Matcher
 * [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 * [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
 * [YOLO website](https://pjreddie.com/darknet/yolo/)
-* [YOLOv3 paper](https://arxiv.org/abs/1804.02767)
+* [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
 
 
 
