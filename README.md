@@ -51,7 +51,7 @@ One example , FAST detector + SIFT Descriptor + BF_Matcher
   * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
   * [OpenCV 4.1.0 source code](https://github.com/opencv/opencv/tree/4.1.0)
 * gcc/g++ >= 5.4
-* yolov3.weights : Download wget https://pjreddie.com/media/files/yolov3.weights 
+* yolov3.weights : Download `wget https://pjreddie.com/media/files/yolov3.weights `
 
 ### Rerefence 
 * [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
