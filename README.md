@@ -38,19 +38,26 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
 * the best performing combinations 
 * several examples where camera-based TTC estimation is way off.
 
-## Runtime Environment Dependencies
-* cmake >= 2.8
-* make >= 4.1 (Linux, Mac), 3.81 (Windows)
-* OpenCV >= 4.1
-  * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
-  * The OpenCV 4.1.0 source code can be found [here](https://github.com/opencv/opencv/tree/4.1.0)
-* gcc/g++ >= 5.4
-* yolov3.weights : Download wget https://pjreddie.com/media/files/yolov3.weights 
-
 ## Result 
 One example , FAST detector + SIFT Descriptor + BF_Matcher
 ![result](result.gif)
 
-## Reference 
+## Runtime Environment Dependencies
+* cmake >= 2.8
+  * [how to install](https://cmake.org/install/)
+* make >= 4.1 (Linux, Mac), 3.81 (Windows)
+* OpenCV >= 4.1
+  * This must be compiled from source using the `-D OPENCV_ENABLE_NONFREE=ON` cmake flag for testing the SIFT and SURF detectors.
+  * [OpenCV 4.1.0 source code](https://github.com/opencv/opencv/tree/4.1.0)
+* gcc/g++ >= 5.4
+* yolov3.weights : Download wget https://pjreddie.com/media/files/yolov3.weights 
+
+### Rerefence 
+* [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
+* [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
+* [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
+* [YOLO website](https://pjreddie.com/darknet/yolo/)
+* [YOLOv3 paper](https://arxiv.org/abs/1804.02767)
+
 
 
