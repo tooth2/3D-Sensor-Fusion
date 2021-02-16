@@ -39,9 +39,13 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
 * several examples where camera-based TTC estimation is way off.
 
 ## Result 
-One example , FAST detector + SIFT Descriptor + BF_Matcher
+FAST detector + FREAK Descriptor + BF_Matcher
 
-![result](result.gif)
+![result1](FAST-FREAK.gif)
+
+SHITOMASI detector + FREAK Descriptor + BF_Matcher
+
+![result2](SH-FREAK.gif)
 
 ## Runtime Environment Dependencies
 * cmake >= 2.8
