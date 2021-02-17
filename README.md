@@ -15,10 +15,10 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
 ### 2.Compute Lidar-based TTC
 * `computeTTCLidar` function : Compute Lidar-based TTC
     * Compute the time-to-collision in second for all matched 3D objects using only Lidar measurements from the matched bounding boxes between current and previous frame 
-    * from both previous and current fame, add closest distance to Lidar points
+    * from both previous and current fame, add distance to Lidar points within the ego lane (assuming lane width=4.0) 
     * outlier Lidar points are excluded which are away more than +/- lanewidth/2 (i.e. left/right lanes). 
-    * Even though Lidar is a reliable sensor, erroneous measurements may still occur. When searching for the closest points, such errorneous measurements will pose a problem as the estimated distance will be too small. Thurs from previous and current Frame, minXCurr and minXPrev are recorded to cope with a certain number of outliers. 
-    * `TTC = minXCurr/(minXPrev-minXCurr) * 1/frameRate` from two successive frames, where frameRate is required to compute the delta time between frames and TTC will hold the result of the computation.
+    * Even though Lidar is a reliable sensor, erroneous measurements may still occur. When searching for the closest points, such errorneous measurements will pose a problem as the estimated distance will be too small. Thurs from previous and current Frame, `minXCurr` and `minXPrev` are calculated by taking average for both frames to cope with a certain number of outliers. Thus, the `minXCurr` and `minXPrev` are the average distances of lidar points within ego lane in the current and previous frames from preceding vehicles, respectively.
+    * `TTC = minXCurr/(minXPrev-minXCurr) * 1/frameRate` from two successive frames, where frameRate is required to compute the delta time between frames and TTC will hold the result of the computation. 
     * TTC computation from the Lidar sensor is based on two noisy distance measurements whereas Radar sensor is more accurate due to direct measurement from relative velocity.
     
 
@@ -48,21 +48,34 @@ Vehicle Tracking using YOLO v3 (image training and classification) and Lidar dat
     
 ### 5. Performance Evaluation 1
 1. Several examples(2-3) here the TTC estimate of the Lidar sensor does not seem plausible.
-* several examples where the Lidar-based TTC estimate is way off.
+* The examples where the Lidar-based TTC estimate is way off might be several points:  Since I took the statiscally robust way of calculating minimum distance from the preceding vehicles, most of TTC lidar data would be reliable, however the tendency of TTC trend is somewhat off compared to tendency of reducing TTC from the result
+![result](3Dobject.gif) 
 * The assertion that the TTC is off is based on manually estimating the distance to the rear of the preceding vehicle from a top view perspective of the Lidar points.
+![Performance1](performance1.png)
+![Performance2](performance2.png)
+By comparing these two approaches, there are two cases that I got different TTC calculation. 
+* frame #003: TTC from velodyne Lidar data is about 16 sec,whereas TTC from yolo+openCV matched lidar data is about 13 sec.   
+* frame #017: TTC from velodyne Lidar data is about 11 sec,whereas TTC from yolo+openCV matched lidar data is about 9.5 sec.   
+To complement these TTC differences, computing TTC from rasor sensor might be helpful since rasor sensors can detect relative velocity to compute TTC. Lidar could lead to wrong menasurement when it comes to wavy/big steering angle case, Camera could lead to worst measurement under raines, shades, lack of light. 
 
 ### 6. Performance Evaluation 1
 2. All detector / descriptor combinations combinations are compared with respect to the TTC estimate on a frame-by-frame basis.
-* the best performing combinations 
 * several examples where camera-based TTC estimation is way off.
+Most cases of using HARRIS detector couldnot compute TTC from camera sensors due to lack of detected keypoints from the matched bounding boxes within ego lane. Some cases, there were only two keypoints were matched between previous and current image frames. Some as ORB detecor cases as well. 
+![Bad Example1](ORB-FREAK17.png)
+![Bad Example12](ORB-FREAK5.png)
+There are many cases ORB detector showed way off TTC -camera, for example 30 sec to about 2000 seconds.
 
+* the best performing combinations 
+    * **SHITOMASI detector + FREAK descriptor** >> SHITOMASI+ ORB >> SHITOMASI + BRIEF >> SHITOMASI +SIFT (SHITOMASI+BRISK is not reliable) 
+    * **FAST detector + FREAK Detector** >> FAST + ORB >> FAST + BRIEF 
+    * (SHITOMASI+FREAK) is slightly faster than (FAST+ FREAK) when two showed similar reliable results. So the best combination is (SHITOMASI+FREAK) combination
+    
 ## Result 
 FAST detector + FREAK Descriptor + BF_Matcher
-
 ![result1](FAST-FREAK.gif)
 
 SHITOMASI detector + FREAK Descriptor + BF_Matcher
-
 ![result2](SH-FREAK.gif)
 
 ## Runtime Environment Dependencies
@@ -79,7 +92,7 @@ SHITOMASI detector + FREAK Descriptor + BF_Matcher
 * [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
 * [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 * [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
-* [YOLO website](https://pjreddie.com/darknet/yolo/)
+* [YOLO github](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)
 * [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
 
 
