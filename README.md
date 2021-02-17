@@ -62,8 +62,8 @@ To complement these TTC differences, computing TTC from rasor sensor might be he
 2. All detector / descriptor combinations combinations are compared with respect to the TTC estimate on a frame-by-frame basis.
 * several examples where camera-based TTC estimation is way off.
 Most cases of using HARRIS detector couldnot compute TTC from camera sensors due to lack of detected keypoints from the matched bounding boxes within ego lane. Some cases, there were only two keypoints were matched between previous and current image frames. Some as ORB detecor cases as well. 
-![Bad Example1](ORB-FREAK17.png)
-![Bad Example12](ORB-FREAK5.png)
+![Bad Example1](ORB-FREAK0017.png)
+![Bad Example12](ORB-FREAK0005.png)
 There are many cases ORB detector showed way off TTC -camera, for example 30 sec to about 2000 seconds.
 
 * the best performing combinations 
