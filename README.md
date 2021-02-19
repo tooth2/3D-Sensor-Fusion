@@ -94,6 +94,7 @@ SHITOMASI detector + FREAK Descriptor + BF_Matcher
 * [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
 * [YOLO github](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)
 * [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
+* [KITTI DATA SET](http://www.cvlibs.net/datasets/kitti/index.php)
 
 
 
