@@ -15,7 +15,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
     if (matcherType.compare("MAT_BF") == 0)
     {      
         int normType;
-        if(descriptorType.compare("DES_HOG")==0 )  //SIFT is one of HOG Family
+        if(descriptorType.compare("SIFT")==0 )  //SIFT is one of HOG Family
         {
           normType = cv::NORM_L2;
         }  
@@ -25,7 +25,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
         }  
       // set crossCheck to True so that the BFMatcher will only return consistent pairs
       // to get best results with minimal number of outliers when there are enough matches.
-        matcher = cv::BFMatcher::create(normType, crossCheck);  //remove crossCheck=true why? it aborts? 
+        matcher = cv::BFMatcher::create(normType, crossCheck);
         if(debug) cout << "BF matching cross-check=" << crossCheck;
     }
     else if (matcherType.compare("MAT_FLANN") == 0)
@@ -50,8 +50,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
         matcher->match(descSource, descRef, matches); // Finds the best match for each descriptor in desc1
     }
     else if (selectorType.compare("SEL_KNN") == 0)
-    { // k nearest neighbors (k=2)
-        // implement k-nearest-neighbor matching
+    { // k nearest neighbors (k=2) implement k-nearest-neighbor matching
         vector<vector<cv::DMatch>> knn_matches;
         double t = (double)cv::getTickCount();
         matcher->knnMatch(descSource, descRef, knn_matches, 2); // finds the 2 best matches
@@ -123,7 +122,7 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
 // Detect keypoints in image using the traditional Shi-Thomasi detector
 void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis)
 {
-    bool debug = false;
+    bool debug = false; 
     // compute detector parameters based on image size
     int blockSize = 4;       //  size of an average block for computing a derivative covariation matrix over each pixel neighborhood
     double maxOverlap = 0.0; // max. permissible overlap between two features in %
@@ -148,7 +147,7 @@ void detKeypointsShiTomasi(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool b
         keypoints.push_back(newKeyPoint);
     }
     t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-    cout << "Shi-Tomasi detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
+    if (debug) cout << "Shi-Tomasi detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
 
     // visualize results
     if (bVis)
