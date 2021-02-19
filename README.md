@@ -89,8 +89,8 @@ SHITOMASI detector + FREAK Descriptor + BF_Matcher
 * yolov3.weights : Download `wget https://pjreddie.com/media/files/yolov3.weights `
 
 ### Rerefence 
-* [Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
-* [Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
+* [OpenCV Feature matching: Brute Force Matcher](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
+* [OpenCV Detector and Descriptor](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html)
 * [Detector and matching](https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d)
 * [YOLO github](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)
 * [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
