@@ -95,6 +95,7 @@ SHITOMASI detector + FREAK Descriptor + BF_Matcher
 * [YOLO github](https://github.com/pjreddie/darknet/wiki/YOLO:-Real-Time-Object-Detection)
 * [YOLOv3: An Incremental Improvement](https://arxiv.org/abs/1804.02767)
 * [KITTI DATA SET](http://www.cvlibs.net/datasets/kitti/index.php)
+* [OpenCV tutorial](https://www.intorobotics.com/how-to-detect-and-track-object-with-opencv/)
 
 
 
