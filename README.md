@@ -71,12 +71,15 @@ There are many cases ORB detector showed way off TTC -camera, for example 30 sec
     * **FAST detector + FREAK Detector** >> FAST + ORB >> FAST + BRIEF 
     * (SHITOMASI+FREAK) is slightly faster than (FAST+ FREAK) when two showed similar reliable results. So the best combination is (SHITOMASI+FREAK) combination
     
-## Result 
-FAST detector + FREAK Descriptor + BF_Matcher
-![result1](FAST-FREAK.gif)
+## Best Combination  
 
-SHITOMASI detector + FREAK Descriptor + BF_Matcher
-![result2](SH-FREAK.gif)
+|FAST detector + FREAK Descriptor + BF_Matcher | SHITOMASI detector + FREAK Descriptor + BF_Matcher|
+|---|---|
+|![result1](FAST-FREAK.gif)| ![result2](SH-FREAK.gif) |
+
+Final output vides is based on FAST Detector + FREAK Descripter matching Algorithm , and more closer the lidar cloud changes color from Green (Safe range) to Red(Collision range) gradually.   
+
+![video](Video-FF.gif)
 
 ## Runtime Environment Dependencies
 * cmake >= 2.8
