@@ -100,10 +100,10 @@ Final output vides is based on FAST Detector + FREAK Descripter matching Algorit
 * [KITTI DATA SET](http://www.cvlibs.net/datasets/kitti/index.php)
 * [OpenCV tutorial](https://www.intorobotics.com/how-to-detect-and-track-object-with-opencv/)
 
-### Related Works
+### Related Work
 - [x] [YOLO Object Detection in tesnforflow](https://github.com/tooth2/YOLOv3-Object-Detection)
 - [x] [YOLOv3 Object Detection in Pytorch](https://github.com/tooth2/YOLOv3-Pytorch)
 - [x] [YOLOv3 Object Detection C++](https://github.com/tooth2/YOLOv3-Object-Detection)
 - [x] [SSD(Single shot detection)](https://github.com/tooth2/SSD-Object-Detection)
-- [ ] Semantic Segmentation 
+- [x] [Semantic Segmentation for Scene Understanding](https://github.com/tooth2/Semantic-Segmentation) 
 
